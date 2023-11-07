@@ -29,7 +29,7 @@ client.on('messageCreate', async (message) => {
     // 送信されたメッセージをpromptに設定
     const completion = await openai.chat.completions.create({
       messages: [{ role: 'user', content: `${message.content}`}],
-      model: 'gpt-4',
+      model: 'gpt-4-1106-preview',
     });
 
     if (completion.choices[0].message.content === undefined) throw new Error();
@@ -40,10 +40,6 @@ client.on('messageCreate', async (message) => {
     })
 
     await thread.send(completion.choices[0].message.content);
-    
-    // メッセージが送信されたチャンネルに、GPT-4の返信を送信
-    await message.channel.send(completion.choices[0].message.content);
-    
   } catch (err) {
     console.log(err);
   };

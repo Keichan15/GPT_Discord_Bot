@@ -1,0 +1,12 @@
+# fly.toml app configuration file generated for keichan-gpt-bot on 2023-10-28T19:08:22+09:00
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = "keichan-gpt-bot"
+primary_region = "nrt"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[env]
